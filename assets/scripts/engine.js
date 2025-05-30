@@ -20,7 +20,6 @@ const state = {
 };
 
 function resetGame() {
-  state.values.hitPosition = 0;
   state.values.result = 0;
   state.values.currentTime = 60;
   state.values.lives = 3;
@@ -75,6 +74,7 @@ function randowSquare() {
 function addListenersHitBox() {
   state.view.squares.forEach((square) => {
     square.addEventListener("mousedown", () => {
+      if (state.values.lives <= 0) return;
       if (square.id === state.values.hitPosition) {
         state.values.result++;
         state.view.score.textContent = state.values.result;
