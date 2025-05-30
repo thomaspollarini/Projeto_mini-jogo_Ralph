@@ -51,9 +51,8 @@ function countDown() {
     setTimeout(() => {
       alert(`Game Over! Your score is ${state.values.result}`);
       state.view.timeLeft.textContent = 0;
+      resetGame();
     }, 300);
-
-    resetGame();
     return;
   }
 }
@@ -93,8 +92,8 @@ function addListenersHitBox() {
           setTimeout(() => {
             alert(`Game Over! Your score is ${state.values.result}`);
             state.view.timeLeft.textContent = 0;
+            resetGame();
           }, 300);
-          resetGame();
           return;
         }
       }
